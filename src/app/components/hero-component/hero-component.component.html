@@ -1,0 +1,29 @@
+<div class="search-container">
+    <input type="text" placeholder="Search..." [(ngModel)]="searchTerm">
+    <button (click)="onSearch()">Search</button>
+  </div>
+  <div >
+    <h3>Searched results</h3>
+    <div class="item" *ngFor="let hero of heroes1">
+      name: {{ hero.name }}
+    </div>
+  </div>
+
+
+  <h3>Current Hero</h3>
+<div class="container">
+      <div  class="item">
+        name: {{ paginatedData.name }}
+    </div>
+  
+    <div class="pagination">
+      <button class = "but" class="prev" (click)="prevPage()" [disabled]="currentPage === 0">Previous</button>
+      <button class = "but" class="next" (click)="nextPage()" [disabled]="endPage">Next</button>
+    </div>
+  </div>
+
+  <div class = "lower">
+    <a class = "but1" href="components/hero-component/add-hero"><button>Add</button></a>
+    <a class = "but1" [routerLink]="['components/hero-component/edit-hero', currentHero.id]"><button>Edit</button></a>
+    <a class = "but1" [routerLink]="['components/hero-component/delete-hero',currentHero.id]"><button>Delete</button></a>
+  </div>
